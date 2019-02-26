@@ -1,7 +1,9 @@
 class BabyDragon
+  attr_reader :thirst_level
+
   def initialize(name)
     @name = name
-
+    @thirst_level = 10
     @hungriness_level = 10
     @is_asleep = false
   end
@@ -30,6 +32,11 @@ class BabyDragon
 
   def process_time
     puts "The passage of time moves on..."
+    if @thirst_level > 0
+      @thirst_level -= 1
+    else
+      puts "#{@name} is dizzy. OHHH NOOO and trampled the town!!"
+    end
     if @hungriness_level > 0
       @hungriness_level -= 1
     else
@@ -43,13 +50,13 @@ class BabyDragon
   end
 end
 
-dees_dragon = BabyDragon.new("Robert")
+dees_dragon = BabyDragon.new("Patricia")
 
 dees_dragon.eat
+puts dees_dragon.thirst_level
+# dees_dragon.sleep
 
-dees_dragon.sleep
-
-100.times do |i|
-  puts "This is the #{i}th time playing:"
-  dees_dragon.play
-end
+# 100.times do |i|
+#   puts "This is the #{i}th time playing:"
+#   dees_dragon.play
+# end
