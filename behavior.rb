@@ -1,9 +1,10 @@
 class BabyDragon
-  attr_reader :thirst_level, :behavior
+  attr_reader :thirst_level, :behavior, :name
 
   def initialize(name, color)
     @name = name
     @thirst_level = 10
+    @potty_level = 0
     @hungriness_level = 10
     @is_asleep = false
     @color = color
@@ -24,8 +25,15 @@ class BabyDragon
   end
 
   def drinks
-    @thirst_level = 10
-    puts "#{@name} poured a glass of Rose"
+    @thirst_level += 10
+    puts "#{@name} poured a bottle of Rose"
+
+    process_time
+  end
+
+  def potty
+    @potty_level = 0
+    puts "#{@name} feels so much better after going to the bathroom!"
 
     process_time
   end
@@ -57,6 +65,11 @@ class BabyDragon
     else
       puts "#{@name} is dizzy. OHHH NOOO and trampled the town!!"
     end
+    if @potty_level < 8
+      @potty_level += 1
+    else
+      puts "Uh-oh, #{@name} had an accident."
+    end
     if @hungriness_level > 0
       @hungriness_level -= 1
     else
@@ -70,14 +83,16 @@ class BabyDragon
   end
 end
 
-dees_dragon = BabyDragon.new("Patricia", "gray")
+# dees_dragon = BabyDragon.new("Patricia", "gray")
 
-dees_dragon.eat
-dees_dragon.do_behavior
-puts dees_dragon.thirst_level
-puts dees_dragon.behavior
+# dees_dragon.eat
+# dees_dragon.do_behavior
+# puts dees_dragon.thirst_level
+# puts dees_dragon.behavior
 
-# dees_dragon.sleep
+# dees_dragon.potty
+
+# # dees_dragon.sleep
 
 # 100.times do |i|
 #   puts "This is the #{i}th time playing:"
