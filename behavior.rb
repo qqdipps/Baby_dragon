@@ -1,5 +1,5 @@
 class BabyDragon
-  attr_reader :thirst_level, :behavior, :name
+  attr_reader :thirst_level, :behavior, :name, :health
 
   def initialize(name, color)
     @name = name
@@ -8,6 +8,7 @@ class BabyDragon
     @hungriness_level = 10
     @is_asleep = false
     @color = color
+    @health = 10
     action = {
       yellow: "Plants sunflowers",
       blue: "Likes to swim",
