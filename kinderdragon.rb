@@ -3,10 +3,6 @@ require_relative "behavior"
 class KinderDragon
   attr_reader :name, :dragons
 
-  def dragons
-    return @dragons
-  end
-
   def initialize(name)
     @name = name
     @dragons = []
