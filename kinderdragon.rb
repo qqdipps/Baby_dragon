@@ -26,9 +26,11 @@ class KinderDragon
       random_num = rand(1..2)
       if random_num == 1
         puts "OUCH.. #{dragon2.name} singed #{dragon1.name}'s baby eyelashes!"
+        sleep 0.1
         dragon1.health -= 1
       else
         puts "OUCH.. #{dragon1.name} gnawed on #{dragon2.name}'s baby tail!"
+        sleep 0.1
         dragon2.health -= 1
       end
     end
@@ -40,6 +42,6 @@ class KinderDragon
 end
 
 dragoon = KinderDragon.new("Dragoon")
-
+dragoon.class_roster
 attack_dragons = dragoon.dragons.sample(2)
 dragoon.attack(attack_dragons[0], attack_dragons[1])
