@@ -3,6 +3,10 @@ require_relative "behavior"
 class KinderDragon
   attr_reader :name, :dragons
 
+  def dragons
+    return @dragons
+  end
+
   def initialize(name)
     @name = name
     @dragons = []
@@ -32,12 +36,14 @@ class KinderDragon
         dragon2.health -= 1
       end
     end
-    print dragon1.health > dragon2.health ? "#{dragon1.name}" : "#{dragon2.name}"
-    puts "is a bully. Bad Baby Dragon!!"
+    print dragon1.health > dragon2.health ? "\n#{dragon1.name}" : "\n#{dragon2.name}"
+    puts " is a bully. Bad Baby Dragon!!"
+    print dragon1.health < dragon2.health ? "#{dragon1.name}" : "#{dragon2.name}"
+    puts " needs a bandaid and a hug"
   end
 end
 
-dragoon = KinderDragon.new("Dragoon").class_roster
+dragoon = KinderDragon.new("Dragoon")
 
-# attack_dragons = dragoon.dragons.sample(2)
-# dragoon.attack(attack_dragons[0], attack_dragons[1])
+attack_dragons = dragoon.dragons.sample(2)
+dragoon.attack(attack_dragons[0], attack_dragons[1])

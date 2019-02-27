@@ -1,5 +1,6 @@
 class BabyDragon
-  attr_reader :thirst_level, :behavior, :name, :health
+  attr_reader :thirst_level, :behavior, :name
+  attr_accessor :health
 
   def initialize(name, color)
     @name = name
