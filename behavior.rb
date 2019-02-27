@@ -4,9 +4,9 @@ class BabyDragon
 
   def initialize(name, color)
     @name = name
-    @thirst_level = 10
+    @thirst_level = 6
     @potty_level = 0
-    @hungriness_level = 10
+    @hungriness_level = 13
     @is_asleep = false
     @color = color
     @health = 10
@@ -20,14 +20,14 @@ class BabyDragon
   end
 
   def eat
-    @hungriness_level = 10
+    @hungriness_level = 13
     puts "#{@name} ate like 6 bags of marshmallows (yo...)"
 
     process_time
   end
 
   def drinks
-    @thirst_level += 10
+    @thirst_level = 10
     puts "#{@name} poured a bottle of Rose"
 
     process_time
@@ -85,10 +85,12 @@ class BabyDragon
   end
 end
 
-# dees_dragon = BabyDragon.new("Patricia", "gray")
+dees_dragon = BabyDragon.new("Patricia", "gray")
 
-# dees_dragon.eat
-# dees_dragon.do_behavior
+dees_dragon.eat
+dees_dragon.do_behavior
+dees_dragon.drinks
+dees_dragon.potty
 # puts dees_dragon.thirst_level
 # puts dees_dragon.behavior
 
@@ -96,7 +98,7 @@ end
 
 # # dees_dragon.sleep
 
-# 100.times do |i|
-#   puts "This is the #{i}th time playing:"
-#   dees_dragon.play
-# end
+100.times do |i|
+  puts "\nThis is the #{i + 1}th time playing:"
+  dees_dragon.do_behavior
+end
